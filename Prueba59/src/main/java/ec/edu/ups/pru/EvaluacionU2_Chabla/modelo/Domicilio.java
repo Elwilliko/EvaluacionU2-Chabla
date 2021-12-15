@@ -18,7 +18,7 @@ public class Domicilio implements Serializable {
 	
 	private String calleSecundaria;
 	
-	private Persona personas;
+	//private Persona personas;
 
 	/**
 	 * @return the codigo
@@ -79,16 +79,16 @@ public class Domicilio implements Serializable {
 	/**
 	 * @return the personas
 	 */
-	public Persona getPersonas() {
+	/*public Persona getPersonas() {
 		return personas;
-	}
+	}*/
 
 	/**
 	 * @param personas the personas to set
 	 */
-	public void setPersonas(Persona personas) {
+	/*public void setPersonas(Persona personas) {
 		this.personas = personas;
-	}
+	}*/
 	
 	
 

@@ -17,6 +17,10 @@ public class DomicilioON implements DomicilioONRemote {
 	public void insert(Domicilio p) throws Exception{
 		daoDomicilio.insert(p);
 	}
+	public void update(Domicilio p) throws Exception{
+		daoDomicilio.insert(p);
+	}
+
 	
 	public List<Domicilio> getClientes(){
 		return daoDomicilio.getList();

@@ -9,6 +9,7 @@ import javax.ejb.*;
 public interface DomicilioONRemote {
 	
 	public void insert(Domicilio p) throws Exception;
+	public void update(Domicilio p) throws Exception;
 	public List<Domicilio> getClientes();
 	
 }

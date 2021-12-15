@@ -23,13 +23,13 @@ public class DomicilioDAO {
 			em.persist(op);
 		}
 	
-	public Domicilio read(int id) {
-		Domicilio op = em.find(Domicilio.class, id);
+	public Domicilio read(int codigo) {
+		Domicilio op = em.find(Domicilio.class, codigo);
 		return op;
 	}
 	
-	public void delete(int id) {
-		Domicilio op = em.find(Domicilio.class, id);
+	public void delete(int codigo) {
+		Domicilio op = em.find(Domicilio.class, codigo);
 		em.remove(op);
 	}
 	

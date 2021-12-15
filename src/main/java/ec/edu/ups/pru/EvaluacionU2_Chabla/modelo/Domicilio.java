@@ -23,9 +23,9 @@ public class Domicilio implements Serializable {
 	@Column(name= "do_calle_secundaria")
 	private String calleSecundaria;
 	
-	@OneToOne
-	@JoinColumn(name= "per_cedula")
-	private Persona personas;
+	//@OneToOne
+    //@JoinColumn(name= "per_cedula")
+	//private Persona personas;
 
 	/**
 	 * @return the codigo
@@ -86,16 +86,16 @@ public class Domicilio implements Serializable {
 	/**
 	 * @return the personas
 	 */
-	public Persona getPersonas() {
+	/*public Persona getPersonas() {
 		return personas;
-	}
+	}*/
 
 	/**
 	 * @param personas the personas to set
 	 */
-	public void setPersonas(Persona personas) {
+/*	public void setPersonas(Persona personas) {
 		this.personas = personas;
-	}
+	}*/
 	
 	
 

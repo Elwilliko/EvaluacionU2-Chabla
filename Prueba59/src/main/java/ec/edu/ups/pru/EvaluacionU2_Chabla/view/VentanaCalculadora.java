@@ -30,11 +30,11 @@ public class VentanaCalculadora {
               
             final Context context = new InitialContext(jndiProperties);  
               
-            final String lookupName = "ejb:/EvaluacionU2-Chabla/PersonaON!ec.edu.ups.pru.EvaluacionU2_Chabla.bussines.PersonaONRemote";
+            final String lookupName = "ejb:/evaluacionu2chabla/PersonaON!ec.edu.ups.pru.evaluacionu2chabla.bussines.PersonaONRemote";
             
             this.prRemote = (PersonaONRemote) context.lookup(lookupName);
             
-            final String lookupName1 = "ejb:/EvaluacionU2-Chabla/DomicilioON!ec.edu.ups.pru.EvaluacionU2_Chabla.bussines.DomicilioONRemote";
+            final String lookupName1 = "ejb:/evaluacionu2chabla/DomicilioON!ec.edu.ups.pru.evaluacionu2chabla.bussines.DomicilioONRemote";
             
             this.dmRemote = (DomicilioONRemote) context.lookup(lookupName1);
 
@@ -44,8 +44,7 @@ public class VentanaCalculadora {
             throw ex;  
         }  
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		
 		public void crearPersona() {
 			Persona pr = new Persona();
@@ -64,16 +63,18 @@ public class VentanaCalculadora {
 		
 		public void crearDomicilio() {
 			Domicilio df = new Domiclio();
-			df.setCodigo(1);
+			df.setCodigo(3);
+			df.setCiudad("Cuenca");
+			df.setCallePrincipal("Av. Totora");;
+			df.setCalleSecundaria("Los andes");
 			
-			Persona pr = new Persona();
-			pr.setCodigo(2);
-			
-			df.setProducto(pr);
-
-			
-			df.setCantidad(4);
-			df.setPrecio(20.0);
+			try {
+				dmRemote.insert(df);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 			
 			try {
 				this.dmRemote.insert(df);
@@ -83,18 +84,35 @@ public class VentanaCalculadora {
 			}
 		}
 
+		public void modificaDomicilio() {
+			Domicilio df = new Domicilio();
+			df.setCodigo(1);
+			df.setCiudad("Ambato");
+			df.setCallePrincipal("10 de Agosto");
+			df.setCalleSecundaria("9 de Octubre");
+			
+			try {
+				dmRemote.update(df);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 
 		public static void main(String[] args) {
 			// TODO Auto-generated method stub
 			
 			VentanaCalculadora vtnClc = new VentanaCalculadora();
 			try {
-				
+				vtnClc.conectar();
+
 				
 				vtnClc.crearPersona();
 				
 				vtnClc.crearDomicilio();
 				
+				vtnClc.modificaDomicilio();
+
 				
 			} catch (Exception e) {
 				e.printStackTrace();
